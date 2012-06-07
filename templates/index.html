@@ -5,12 +5,18 @@
 	<title>Live Chat Prototype</title>
 	
 	<link href="{{static_url('style.css')}}" rel="stylesheet" type="text/css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+	<script src="{{static_url('script.js')}}" type="text/javascript"></script>
 	
 </head>
 <body>
 	<form action="/" method="post">
 		<div id="chat">
-				{{chatlog}}
+			<ul id="posts">
+			{% for pair in sorted(chatlog.items()) %}
+				<li>{{pair[1]}}<span class="timestamp">{{pair[0]}}</span></li>
+			{% end %}
+			</ul>
 		</div>
 		<span class="chatbox">
 			<input id="text-input" type="text" name="text">
