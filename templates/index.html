@@ -19,8 +19,8 @@
 	<form action="/" method="post">
 		<div id="chat">
 			<ul id="posts">
-			{% for pair in sorted(chatlog.items()) %}
-				<li>{{pair[1]}}<span class="timestamp">{{pair[0]}}</span></li>
+			{% for entry in chatlog %}
+				<li>{{entry['message']}}<span class="timestamp">{{entry['timestamp']}}</span></li>
 			{% end %}
 			</ul>
 		</div>
